@@ -92,6 +92,7 @@ public SpeechToTextFromMicrophone(){
                                 SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
                                 System.out.printf("Transcript : %s\n", alternative.getTranscript());
                             }
+
                         }
 
                         public void onError(Throwable t) {
@@ -150,6 +151,8 @@ public SpeechToTextFromMicrophone(){
                                 .build();
                 clientStream.send(request);
             }
+            targetDataLine.stop();
+            targetDataLine.close();
         } catch (Exception e) {
             System.out.println(e);
         }
