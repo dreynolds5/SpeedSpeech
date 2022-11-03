@@ -114,6 +114,7 @@ public SpeechToTextFromMicrophone(){
                 audio.read(data);
                 if (estimatedTime > 15000) {
                     this.onSplit();
+                    break;
                 }
                 request =
                         StreamingRecognizeRequest.newBuilder()
