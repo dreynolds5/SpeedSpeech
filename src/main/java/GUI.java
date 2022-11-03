@@ -39,9 +39,9 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
 
     }
-    public static void main{String[] args} {
-        new GUI();
-    }
+    //public static void main{String[] args} {
+      //  new GUI();
+    //}
 
     public void actionPerformed(ActionEvent e) {
         count++;
