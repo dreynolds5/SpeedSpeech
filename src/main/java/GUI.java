@@ -17,14 +17,15 @@ public class GUI implements ActionListener {
     private JLabel label;
     private JFrame frame;
     private JPanel panel;
+    SpeechToTextFromMicrophone test = new SpeechToTextFromMicrophone();
 
-    public GUI() {
+    public GUI() throws Exception {
         JFrame frame = new JFrame();
 
-        JButton button = new JButton("Click me");
+        JButton button = new JButton("Stop");
         button.addActionListener(this);
 
-        label = new JLabel("Number of clicks: 0");
+        label = new JLabel("Transcript");
 
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
@@ -37,6 +38,7 @@ public class GUI implements ActionListener {
         frame.setTitle("Our GUI");
         frame.pack();
         frame.setVisible(true);
+        test.streamingMicRecognize();
 
     }
     //public static void main{String[] args} {
@@ -44,7 +46,7 @@ public class GUI implements ActionListener {
     //}
 
     public void actionPerformed(ActionEvent e) {
-        count++;
-        label.setText("Number of clicks: ");
+        boolean state = true;
+        test.swapStop(state);
     }
 }

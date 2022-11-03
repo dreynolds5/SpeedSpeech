@@ -24,7 +24,7 @@ public class SpeechToTextFromMicrophone {
     // * See the License for the specific language governing permissions and
     // * limitations under the License.
     // */
-public boolean stop;
+public volatile boolean stop;
 public ArrayList <String> transcription = new ArrayList<>();
     ResponseObserver<StreamingRecognizeResponse> responseObserver = null;
     ArrayList<StreamingRecognizeResponse> responses = new ArrayList<>();
@@ -108,14 +108,21 @@ public SpeechToTextFromMicrophone(){
             long startTime = System.currentTimeMillis();
             // Audio Input Stream
             AudioInputStream audio = new AudioInputStream(targetDataLine);
-            while (!stop) {
+            while (true) {
                 long estimatedTime = System.currentTimeMillis() - startTime;
                 byte[] data = new byte[6400];
                 audio.read(data);
-                if (estimatedTime > 15000) {
+
+                if (stop == true){
                     this.onSplit();
                     break;
                 }
+                if (estimatedTime > 15000) {
+                    this.onSplit();
+                    startTime = System.currentTimeMillis();
+                    //break;
+                }
+
                 request =
                         StreamingRecognizeRequest.newBuilder()
                                 .setAudioContent(ByteString.copyFrom(data))
@@ -131,12 +138,8 @@ public SpeechToTextFromMicrophone(){
     System.out.println(transcription);
     }
 
-    public void swapStop(){
-        if (!stop){
-            stop = true;
-        }
-        else {
-            stop = false;
-        }
+    public void swapStop(boolean state){
+        stop = state;
+        System.out.println(stop);
     }
 }
