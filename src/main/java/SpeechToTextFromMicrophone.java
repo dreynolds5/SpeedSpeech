@@ -42,7 +42,6 @@ public ArrayList <String> transcription = new ArrayList<>();
 public SpeechToTextFromMicrophone(){
     stop = false;
 }
-    /** Performs microphone streaming speech recognition with a duration of 1 minute. */
     public void streamingMicRecognize() throws Exception {
 
         try (SpeechClient client = SpeechClient.create()) {
