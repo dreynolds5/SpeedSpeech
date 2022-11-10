@@ -46,5 +46,5 @@ public class SpeechBlocks {
             //need to add each one to an array list
         }
     }
-    //needs to create a class to retunr arrayList of speechBlocks
+    //needs to create a class to return arrayList of speechBlocks
 }
