@@ -26,8 +26,9 @@ public class SpeechToTextFromMicrophone {
     // */
 public volatile boolean stop;
 public ArrayList <String> transcription = new ArrayList<>();
-    ResponseObserver<StreamingRecognizeResponse> responseObserver = null;
+
     ArrayList<StreamingRecognizeResponse> responses = new ArrayList<>();
+    ResponseObserver<StreamingRecognizeResponse> responseObserver = null;
 
 
     public void onSplit(){
@@ -60,6 +61,8 @@ public SpeechToTextFromMicrophone(){
                                 StreamingRecognitionResult result = response.getResultsList().get(0);
                                 SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
                                 System.out.printf("Transcript : %s\n", alternative.getTranscript());
+                                String transcripts = String.format("%s", alternative.getTranscript());
+                                transcription.add(transcripts);
                             }
 
                         }
@@ -77,6 +80,7 @@ public SpeechToTextFromMicrophone(){
                             .setEncoding(RecognitionConfig.AudioEncoding.LINEAR16)
                             .setLanguageCode("en-US")
                             .setSampleRateHertz(16000)
+                            .setModel("Latest_long")
                             .build();
             StreamingRecognitionConfig streamingRecognitionConfig =
                     StreamingRecognitionConfig.newBuilder().setConfig(recognitionConfig).build();
@@ -113,11 +117,10 @@ public SpeechToTextFromMicrophone(){
                 audio.read(data);
 
                 if (stop == true){
-                    this.onSplit();
                     break;
                 }
                 if (estimatedTime > 15000) {
-                    this.onSplit();
+                    //this.onSplit();
                     startTime = System.currentTimeMillis();
                     //break;
                 }
@@ -137,8 +140,7 @@ public SpeechToTextFromMicrophone(){
     System.out.println(transcription);
     }
 
-    public void swapStop(boolean state){
+    public void swapStop(boolean state) {
         stop = state;
-        System.out.println(stop);
     }
 }

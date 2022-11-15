@@ -46,7 +46,13 @@ public class GUI implements ActionListener {
     //}
 
     public void actionPerformed(ActionEvent e) {
-        boolean state = true;
-        test.swapStop(state);
+        try {
+            Thread.sleep(1500);
+            boolean state = true;
+            test.swapStop(state);
+        } catch (InterruptedException ex) {
+            throw new RuntimeException(ex);
+        }
+
     }
 }
