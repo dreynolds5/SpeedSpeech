@@ -28,7 +28,7 @@ public class GUI implements ActionListener {
         label = new JLabel("Transcript");
 
         JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.setBorder(BorderFactory.createEmptyBorder(1000, 1000, 1000, 1000));
         panel.setLayout(new GridLayout(0, 1));
         panel.add(button);
         panel.add(label);
@@ -40,16 +40,17 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
         test.streamingMicRecognize();
 
+        private JLabel label = new JLabel("Speed Speech");
+        JButton button = new JButton("Record");
+        button.addActionListener(this);
+        JButton button = new JButton("How To");
+        button.addActionListener(this);
+
     }
     //public static void main{String[] args} {
       //  new GUI();
     //}
 
-    @Override
-
-        label= new JLabel("Speed Speech");
-        JButton button2 = new JButton("Record");
-        JButton button2 = new JButton("How To");
 
     }
     public void actionPerformed(ActionEvent e) {
