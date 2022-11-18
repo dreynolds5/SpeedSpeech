@@ -45,6 +45,13 @@ public class GUI implements ActionListener {
       //  new GUI();
     //}
 
+    @Override
+
+        label= new JLabel("Speed Speech");
+        JButton button2 = new JButton("Record");
+        JButton button2 = new JButton("How To");
+
+    }
     public void actionPerformed(ActionEvent e) {
         try {
             Thread.sleep(1500);
