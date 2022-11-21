@@ -25,10 +25,12 @@ public class SpeechToTextFromMicrophone {
     // * limitations under the License.
     // */
 public volatile boolean stop;
-public ArrayList <String> transcription = new ArrayList<>();
-
+ ArrayList <String> transcriptionRaw = new ArrayList<>();
+    ArrayList<Long> timesRaw = new ArrayList<>();
     ArrayList<StreamingRecognizeResponse> responses = new ArrayList<>();
     ResponseObserver<StreamingRecognizeResponse> responseObserver = null;
+    boolean done;
+
 
 
     public void onSplit(){
@@ -36,24 +38,30 @@ public ArrayList <String> transcription = new ArrayList<>();
             StreamingRecognitionResult result = response.getResultsList().get(0);
             SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
             String transcripts = String.format("%s", alternative.getTranscript());
-            transcription.add(transcripts);
+            transcriptionRaw.add(transcripts);
 
         }
 }
 public SpeechToTextFromMicrophone(){
-    stop = false;
+        done = false;
+        stop = false;
 }
     public void streamingMicRecognize() throws Exception {
 
         try (SpeechClient client = SpeechClient.create()) {
-
+            long[] startTimeSplit = {System.currentTimeMillis()};
             responseObserver =
+
                     new ResponseObserver<StreamingRecognizeResponse>() {
 
                         public void onStart(StreamController controller) {}
 
                         public void onResponse(StreamingRecognizeResponse response) {
                             responses.add(response);
+                            long split = System.currentTimeMillis() - startTimeSplit[0];
+                            timesRaw.add(split);
+                            startTimeSplit[0] = System.currentTimeMillis();
+
                         }
 
                         public void onComplete() {
@@ -62,7 +70,7 @@ public SpeechToTextFromMicrophone(){
                                 SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
                                 System.out.printf("Transcript : %s\n", alternative.getTranscript());
                                 String transcripts = String.format("%s", alternative.getTranscript());
-                                transcription.add(transcripts);
+                                transcriptionRaw.add(transcripts);
                             }
 
                         }
@@ -137,10 +145,24 @@ public SpeechToTextFromMicrophone(){
             System.out.println(e);
         }
         responseObserver.onComplete();
-    System.out.println(transcription);
+    System.out.println(transcriptionRaw);
+    System.out.println(timesRaw);
+    done = true;
+
+    }
+
+    public ArrayList<Long> getTimesRaw() {
+        return timesRaw;
+    }
+
+    public ArrayList<String> getTranscriptionRaw() {
+        return transcriptionRaw;
     }
 
     public void swapStop(boolean state) {
         stop = state;
+    }
+    public boolean getDone(){
+        return done;
     }
 }
