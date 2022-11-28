@@ -5,24 +5,25 @@ public class SpeechBlocks {
     boolean tooSlow;
     double wpms;
     String finalTranscript = null;
-    CalculateWPM wpm = new CalculateWPM();
+    CalculateWPM wpm;
     String transcriptBlock;
-    double wpmvalue;
+    double wpmValue;
     ArrayList<SpeechBlocks> speechBlocks = new ArrayList<>();
 
+    public  SpeechBlocks(){
+
+}
     public SpeechBlocks(boolean fast, boolean slow, String transcript, double speed) {
         this.tooFast = fast;
         this.tooSlow = slow;
         this.transcriptBlock = transcript;
-        this.wpmvalue = speed;
+        this.wpmValue = speed;
     }
 
 
-    public ArrayList<SpeechBlocks> getData() {
-        return speechBlocks;
-    }
 
-    public void createSpeechBlock() {
+    public void createSpeechBlock(CalculateWPM tempCalculateWPM) {
+        wpm = tempCalculateWPM;
         boolean tooFasts = false;
         boolean tooSlows = false;
         ArrayList<String> transcript = new ArrayList<>();
@@ -32,10 +33,10 @@ public class SpeechBlocks {
         for (int i = 0; i < transcript.size(); i++) {
             String transcriptBlock = transcript.get(i);
             double wpm = wpmValues.get(i);
-            if (wpm > 150){
+            if (wpm > 155){
                 tooFasts = true;
             }
-            else if (wpm < 100) {
+            else if (wpm < 95) {
                 tooSlows = true;
             }
             else {
@@ -43,8 +44,14 @@ public class SpeechBlocks {
                 tooFasts = false;
             }
             SpeechBlocks temp = new SpeechBlocks(tooFasts, tooSlows, transcriptBlock, wpm);
+            speechBlocks.add(temp);
+            System.out.println(speechBlocks);
             //need to add each one to an array list
         }
     }
     //needs to create a class to return arrayList of speechBlocks
+
+    public ArrayList<SpeechBlocks> getSpeechBlocks() {
+        return speechBlocks;
+    }
 }
