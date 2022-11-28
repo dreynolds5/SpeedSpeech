@@ -1,4 +1,4 @@
-import sun.java2d.SunGraphics2D;
+//import sun.java2d.SunGraphics2D;
 
         import java.awt.*;
         import java.awt.event.*;

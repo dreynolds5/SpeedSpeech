@@ -3,12 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class summary {
+public class pageFour {
     public static void main(String[] args) {
 
         // JButton = a button that performs an action when clicked on
 
-        new summary.MyFrame4();
+        new pageFour.MyFrame4();
 
     }
 
