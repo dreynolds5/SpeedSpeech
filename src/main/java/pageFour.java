@@ -3,7 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class pageFour extends pageThree{
+public class pageFour {
+
+    boolean tooFast = false;
+    boolean tooSlow = false;
+    String transcriptBlock = null;
+    double wpmValue = 0;
+
     public static void main(String[] args) {
 
         // JButton = a button that performs an action when clicked on

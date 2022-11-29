@@ -7,14 +7,12 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-
 public class pageOne {
     public static void main(String[] args) {
 
         // JButton = a button that performs an action when clicked on
 
         new MyFrame();
-
 
     }
 
@@ -30,7 +28,7 @@ public class pageOne {
 
             JFrame jframe = new JFrame("JFrame Background Color");
 
-            jframe.getContentPane().setBackground(Color.MAGENTA);
+            jframe.setBackground(Color.magenta);
             jframe.setPreferredSize(new Dimension(650, 900));
             jframe.setVisible(true);
 
@@ -71,6 +69,7 @@ public class pageOne {
             button2.addActionListener(this);
             button2.setText("How To");
 
+
             button2.setFocusable(false);
             button2.setHorizontalTextPosition(JButton.CENTER);
             button2.setVerticalTextPosition(JButton.BOTTOM);
@@ -99,9 +98,9 @@ public class pageOne {
                 label.setVisible(true);
             }
 
-            // interface ActionListener extends EventListener {
+             //interface ActionListener extends EventListener {
 
-            //   public void actionPerformed(ActionEvent e);
+               //public void actionPerformed(ActionEvent e);
 
         }
     }
