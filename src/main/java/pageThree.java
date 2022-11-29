@@ -14,6 +14,7 @@ public class pageThree {
 
     public static class MyFrame3 extends JFrame implements ActionListener {
 
+        SpeechToTextFromMicrophone speech = new SpeechToTextFromMicrophone();
         JButton button;
         JButton button2;
         JButton button3;
@@ -82,24 +83,47 @@ public class pageThree {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == button) {
-                System.out.println("poo");
-                button.setEnabled(false);
-                label.setVisible(true);
+                System.out.println("start");
+                button2.setEnabled(true);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            speech.start();
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+                }).start();
 
-                System.out.println("poo");
-                button2.setEnabled(false);
-                label.setVisible(true);
-
-                System.out.println("poo");
-                button3.setEnabled(false);
+                button.setEnabled(true);
                 label.setVisible(true);
             }
+
+            else if (e.getSource() == button2){
+                try {
+                    System.out.println("stop");
+                    Thread.sleep(1328);
+                    boolean state = true;
+                    speech.swapStop(state);
+                    while (speech.getDone() == true){
+                       // System.out.println("Buffering....");
+                        Thread.sleep(1000);
+                    }
+
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+
 
             // interface ActionListener extends EventListener {
 
             //   public void actionPerformed(ActionEvent e);
 
         }
+
     }
 }
 //**************************************************

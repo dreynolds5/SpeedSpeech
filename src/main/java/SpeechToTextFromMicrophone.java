@@ -162,6 +162,11 @@ public SpeechToTextFromMicrophone(){
     public void swapStop(boolean state) {
         stop = state;
     }
+    public void start() throws Exception {
+        System.out.println("start speaking");
+        this.streamingMicRecognize();
+        System.out.println("done");
+    }
     public boolean getDone(){
         return done;
     }
