@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class pageThree {
     public static void main(String[] args) {
@@ -20,6 +21,9 @@ public class pageThree {
         JButton button3;
         JLabel label;
         JLabel label_name;
+        CalculateWPM calculateSpeed = new CalculateWPM();
+        SpeechBlocks blocks = new SpeechBlocks();
+        ArrayList<SpeechBlocks> blocksList = new ArrayList<>();
 
         MyFrame3() {
 
@@ -110,6 +114,13 @@ public class pageThree {
                        // System.out.println("Buffering....");
                         Thread.sleep(1000);
                     }
+                    calculateSpeed.getInputs(speech);
+                    calculateSpeed.calculateWpm();
+                    Thread.sleep(1328);
+                    blocks.createSpeechBlock(calculateSpeed);
+                    blocksList = blocks.getSpeechBlocks();
+
+
 
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);

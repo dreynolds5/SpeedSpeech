@@ -54,4 +54,20 @@ public class SpeechBlocks {
     public ArrayList<SpeechBlocks> getSpeechBlocks() {
         return speechBlocks;
     }
+
+    public boolean isTooFast() {
+        return tooFast;
+    }
+
+    public boolean isTooSlow() {
+        return tooSlow;
+    }
+
+    public String getTranscriptBlock() {
+        return transcriptBlock;
+    }
+
+    public double getWpmValue() {
+        return wpmValue;
+    }
 }
