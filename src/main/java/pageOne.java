@@ -7,12 +7,14 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+
 public class pageOne {
     public static void main(String[] args) {
 
         // JButton = a button that performs an action when clicked on
 
         new MyFrame();
+
 
     }
 
@@ -28,7 +30,7 @@ public class pageOne {
 
             JFrame jframe = new JFrame("JFrame Background Color");
 
-            jframe.setBackground(Color.magenta);
+            jframe.getContentPane().setBackground(Color.MAGENTA);
             jframe.setPreferredSize(new Dimension(650, 900));
             jframe.setVisible(true);
 

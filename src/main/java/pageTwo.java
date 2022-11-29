@@ -1,4 +1,4 @@
-import sun.java2d.SunGraphics2D;
+//import sun.java2d.SunGraphics2D;
 
         import java.awt.*;
         import java.awt.event.*;
@@ -14,13 +14,6 @@ public class pageTwo {
 
         // JButton = a button that performs an action when clicked on
 
-        new pageTwo.frame();
-        JFrame frame = new JFrame();
-        frame.setPreferredSize(new Dimension(650, 900));
-        frame.getContentPane().setBackground(Color.magenta);
-        frame.pack();
-        frame.setVisible(true);
-
     }
 
     public static class frame extends JFrame implements ActionListener {
@@ -35,7 +28,7 @@ public class pageTwo {
             label = new JLabel();
             label.setBounds(150, 100, 400, 400);
             label.setVisible(false);
-            label.setText("Preferences");
+            label.setText("How To");
             label.setHorizontalTextPosition(JLabel.CENTER);
             label.setFont(new Font("Helvetica", Font.BOLD, 50));
             label.setVisible(true);
@@ -43,9 +36,9 @@ public class pageTwo {
             label2 = new JLabel();
             label2.setBounds(225, 200, 400, 400);
             label2.setVisible(false);
-            label2.setText("How Long?");
+            label2.setText("When you click the Record button, you will be prompted to a new page with a Start and Stop button, as well as a timer. To reset your speech, press the Home button. If and once you are satisfied with your speech, press the Stop button, and you will be directed to the Summary page with intensive data of your speech. Happy speaking!");
             label2.setHorizontalTextPosition(JLabel.CENTER);
-            label2.setFont(new Font("Helvetica", Font.BOLD, 25));
+            label2.setFont(new Font("Helvetica", Font.BOLD, 10));
             label2.setVisible(true);
 
 
