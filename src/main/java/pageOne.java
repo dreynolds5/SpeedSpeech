@@ -69,7 +69,6 @@ public class pageOne {
             button2.addActionListener(this);
             button2.setText("How To");
 
-
             button2.setFocusable(false);
             button2.setHorizontalTextPosition(JButton.CENTER);
             button2.setVerticalTextPosition(JButton.BOTTOM);
@@ -98,9 +97,9 @@ public class pageOne {
                 label.setVisible(true);
             }
 
-             //interface ActionListener extends EventListener {
+            // interface ActionListener extends EventListener {
 
-               //public void actionPerformed(ActionEvent e);
+            //   public void actionPerformed(ActionEvent e);
 
         }
     }
