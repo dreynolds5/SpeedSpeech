@@ -10,35 +10,35 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class PageSummary extends JPanel implements ActionListener {
 	private static final Font TEXT_FONT = new Font("Helvetica", Font.PLAIN, 24);
-	private static JScrollPane makeTextArea(String text, int w, int h) {
+	private static JScrollPane makeTextArea(String text) {
 		JTextArea tarea = new JTextArea();
 		tarea.setText(text);
 		tarea.setFont(TEXT_FONT);
 		tarea.setEditable(false);
 		tarea.setLineWrap(true);
-		tarea.setMinimumSize(new Dimension(w, h));
 		JScrollPane scr = new JScrollPane(tarea);
-		scr.setMinimumSize(new Dimension(w, h));
+		scr.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		return scr;
 	}
 	
 	PageSummary(SpeechToTextFromMicrophone finished_speech, Window window) {
-		super(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
+		int w = window.getWidth();
+		int h = window.getHeight();
+		int next_y = 0;
+		
+		setLayout(null);
+		setSize(w, h);
 		
 		JLabel title = new JLabel();
-		title.setBounds(300, 300, 600, 600);
+		title.setBounds(150, next_y, w, 150);
+		next_y = 150;
 		title.setVisible(true);
 		title.setText("Summary");
-		title.setHorizontalTextPosition(JLabel.CENTER);
+		title.setHorizontalTextPosition(SwingConstants.CENTER);
+		title.setVerticalTextPosition(SwingConstants.CENTER);
 		title.setFont(new Font("Helvetica", Font.BOLD, 70));
 		title.setPreferredSize(new Dimension(1, 1));
-		
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.anchor = GridBagConstraints.CENTER;
-		add(title, c);
+		add(title);
 		
 		CalculateWPM cwpm = new CalculateWPM();
 		cwpm.getInputs(finished_speech);
@@ -59,25 +59,23 @@ public class PageSummary extends JPanel implements ActionListener {
 				+ "\" -> " + (int)sb.getWpmValue() + " WPM"
 				+ note + '\n';
 		}
-		c.gridy = 1;
-		add(makeTextArea(wpm_report, 600, 300), c);
+		JScrollPane scr = makeTextArea(wpm_report);
+		scr.setBounds(0, next_y, w, 300);
+		next_y += 300;
+		add(scr);
 		
 		String transcript = "";
 		for (String part : finished_speech.getTranscriptionRaw()) {
 			transcript += part;
 			transcript += ' ';
 		}
-		c.gridy = 2;
-		add(makeTextArea(transcript, 600, 400), c);
+		scr = makeTextArea(transcript);
+		scr.setBounds(0, next_y, w, h-next_y);
+		add(scr);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
 	}
-
-	// interface ActionListener extends EventListener {
-
-	// public void actionPerformed(ActionEvent e);
-
 }
