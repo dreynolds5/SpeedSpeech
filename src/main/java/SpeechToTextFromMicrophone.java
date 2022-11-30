@@ -132,7 +132,7 @@ public class SpeechToTextFromMicrophone {
 		client.awaitTermination(1, TimeUnit.SECONDS);
 		responseObserver.onComplete();
 		// shutdownNow causes an exception to be printed to stdout, 
-		// but is quickest way to stop without waiting for OUT_OF_RANGE
+		// but is the quickest way to stop without waiting for OUT_OF_RANGE
 		client.shutdownNow();
 		client.close();
 		

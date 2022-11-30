@@ -136,8 +136,13 @@ public class PageRecord extends JPanel implements ActionListener {
 					interrupted = true;
 				}
 			} while (interrupted);
-			
-			speech.queueStop();
+			try {
+				Thread.sleep(1328);
+				speech.queueStop();
+			} catch (InterruptedException ex) {
+				throw new RuntimeException(ex);
+			}
+
 			// previously this thread would while(true) checking
 			// a `done` instance variable of `speech`
 			// changed to join() which is simpler
