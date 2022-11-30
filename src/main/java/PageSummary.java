@@ -16,6 +16,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		tarea.setFont(TEXT_FONT);
 		tarea.setEditable(false);
 		tarea.setLineWrap(true);
+		tarea.setWrapStyleWord(true);
 		JScrollPane scr = new JScrollPane(tarea);
 		scr.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		return scr;

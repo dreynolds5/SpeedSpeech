@@ -170,13 +170,13 @@ public class PageRecord extends JPanel implements ActionListener {
 					interrupted = true;
 				}
 			} while (interrupted);
-			speech = null;
 			if (src == btn_home) {
 				window.setActivePage("main menu");
 			} else {
 				window.addPage("summary", new PageSummary(speech, window));
 				window.setActivePage("summary");
 			}
+			speech = null;
 			btn_start.setEnabled(true);
 		}
 	}
