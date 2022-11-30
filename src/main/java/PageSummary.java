@@ -60,7 +60,7 @@ public class PageSummary extends JPanel implements ActionListener {
 				+ note + '\n';
 		}
 		c.gridy = 1;
-		add(makeTextArea(wpm_report, 600, 400), c);
+		add(makeTextArea(wpm_report, 600, 300), c);
 		
 		String transcript = "";
 		for (String part : finished_speech.getTranscriptionRaw()) {
