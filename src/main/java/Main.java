@@ -1,6 +1,5 @@
 import javax.swing.SwingUtilities;
 
-// contributed by Sam
 public class Main {
     public static void showInterface() {
     	Window window = new Window();
@@ -9,7 +8,7 @@ public class Main {
         window.addPage("record", new PageRecord(window));
         window.setActivePage("main menu");
         window.display();
-        System.out.println("go");
+       // System.out.println("go");
     }
 	public static void main(String[] _args) throws Exception {
        SwingUtilities.invokeLater(new Runnable() {

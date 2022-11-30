@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class PageRecord extends JPanel implements ActionListener {
 	private JButton btn_start;
 	private JButton btn_stop;
-	private JButton button3;
+	//private JButton button3;
 	//private JLabel label_name;
 	
 	private SpeechToTextFromMicrophone speech = null;
@@ -68,20 +68,7 @@ public class PageRecord extends JPanel implements ActionListener {
 		btn_stop.setBackground(Color.blue);
 		btn_stop.setBorder(BorderFactory.createEtchedBorder());
 		add(btn_stop);
-		
-		button3 = new JButton();
-		button3.setBounds(0, 0, 250, 100);
-		button3.setText("Timer");	
-		button3.setFocusable(false);
-		button3.setEnabled(false);
-		button3.setHorizontalTextPosition(JButton.CENTER);
-		button3.setVerticalTextPosition(JButton.BOTTOM);
-		button3.setFont(new Font("Helvetica", Font.BOLD, 25));
-		button3.setIconTextGap(-15);
-		button3.setForeground(Color.black);
-		button3.setBackground(Color.blue);
-		button3.setBorder(BorderFactory.createEtchedBorder());
-		add(button3);
+
 	}
 
 	// below methods contributed by Sam
