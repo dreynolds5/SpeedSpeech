@@ -9,6 +9,7 @@ public class Main {
         window.addPage("record", new PageRecord(window));
         window.setActivePage("main menu");
         window.display();
+        System.out.println("go");
     }
 	public static void main(String[] _args) throws Exception {
        SwingUtilities.invokeLater(new Runnable() {
