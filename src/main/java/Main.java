@@ -7,11 +7,7 @@ public class Main {
         window.addPage("main menu", new PageMainMenu(window));
         window.addPage("how to", new PageHowTo(window));
         window.addPage("record", new PageRecord(window));
-        SpeechToTextFromMicrophone s = new SpeechToTextFromMicrophone();
-        for (int i = 0; i < 100; i++) s.addFake("hello world");
-        window.addPage("window", new PageSummary(s, window));
-        window.setActivePage("window");
-        //window.setActivePage("main menu");
+        window.setActivePage("main menu");
         window.display();
     }
 	public static void main(String[] _args) throws Exception {

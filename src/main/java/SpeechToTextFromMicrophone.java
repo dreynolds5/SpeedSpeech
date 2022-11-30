@@ -27,15 +27,6 @@ public class SpeechToTextFromMicrophone {
 	private ArrayList<String> transcriptionRaw = new ArrayList<>();
 	private ArrayList<Long> timesRaw = new ArrayList<>();
 	private ArrayList<StreamingRecognizeResponse> responses = new ArrayList<>();
-
-	public void addFake(String txt) {
-		transcriptionRaw.add(txt);
-		if (timesRaw.size() != 0) {
-			timesRaw.add(timesRaw.get(timesRaw.size()-1) + (long)(2000*Math.random()));
-		} else {
-			timesRaw.add((long)(2000*Math.random()));
-		}
-	}
 	
 	/*public void onSplit() {
 		for (StreamingRecognizeResponse response : responses) {
@@ -141,7 +132,7 @@ public class SpeechToTextFromMicrophone {
 		client.awaitTermination(1, TimeUnit.SECONDS);
 		responseObserver.onComplete();
 		// shutdownNow causes an exception to be printed to stdout, 
-		// but is quickest way to stop without waiting for OUT_OF_RANGE
+		// but is the quickest way to stop without waiting for OUT_OF_RANGE
 		client.shutdownNow();
 		client.close();
 		
