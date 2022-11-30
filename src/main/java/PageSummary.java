@@ -27,7 +27,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		GridBagConstraints c = new GridBagConstraints();
 		
 		JLabel title = new JLabel();
-		title.setBounds(300, 300, 600, 600);
+		title.setBounds(4000, 4000, 600, 600);
 		title.setVisible(true);
 		title.setText("Summary");
 		title.setHorizontalTextPosition(JLabel.CENTER);
@@ -60,7 +60,7 @@ public class PageSummary extends JPanel implements ActionListener {
 				+ note + '\n';
 		}
 		c.gridy = 1;
-		add(makeTextArea(wpm_report, 600, 300), c);
+		add(makeTextArea(wpm_report, 4000, 4000), c);
 		
 		String transcript = "";
 		for (String part : finished_speech.getTranscriptionRaw()) {
@@ -68,7 +68,7 @@ public class PageSummary extends JPanel implements ActionListener {
 			transcript += ' ';
 		}
 		c.gridy = 2;
-		add(makeTextArea(transcript, 600, 400), c);
+		add(makeTextArea(transcript, 4000, 4000), c);
 	}
 
 	@Override
