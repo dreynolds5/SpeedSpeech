@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class PageRecord extends JPanel implements ActionListener {
 	private JButton btn_start;
 	private JButton btn_stop;
-	private JButton button3;
+	private JButton btn_home;
 	//private JLabel label_name;
 	
 	private SpeechToTextFromMicrophone speech = null;
@@ -23,7 +23,7 @@ public class PageRecord extends JPanel implements ActionListener {
 		this.window = window;
 		
 		setLayout(null);
-		setSize(650, 900);
+		setSize(window.getWidth(), window.getHeight());
 		
 		// speech_thread, timer_thread, timer_label, timer_should_stop
 		// contributed by Sam
@@ -69,19 +69,20 @@ public class PageRecord extends JPanel implements ActionListener {
 		btn_stop.setBorder(BorderFactory.createEtchedBorder());
 		add(btn_stop);
 
-		button3 = new JButton();
-		button3.setBounds(400, 0, 250, 100);
-		button3.setText("HOME");
-		button3.setFocusable(false);
-		button3.setEnabled(false);
-		button3.setHorizontalTextPosition(JButton.CENTER);
-		button3.setVerticalTextPosition(JButton.BOTTOM);
-		button3.setFont(new Font("Helvetica", Font.BOLD, 25));
-		button3.setIconTextGap(-15);
-		button3.setForeground(Color.black);
-		button3.setBackground(Color.blue);
-		button3.setBorder(BorderFactory.createEtchedBorder());
-		add(button3);
+		btn_home = new JButton();
+		btn_home.setBounds(400, 0, 250, 100);
+		btn_home.setText("Home");
+		btn_home.setFocusable(false);
+		btn_home.setEnabled(true);
+		btn_home.addActionListener(this);
+		btn_home.setHorizontalTextPosition(JButton.CENTER);
+		btn_home.setVerticalTextPosition(JButton.BOTTOM);
+		btn_home.setFont(new Font("Helvetica", Font.BOLD, 25));
+		btn_home.setIconTextGap(-15);
+		btn_home.setForeground(Color.black);
+		btn_home.setBackground(Color.blue);
+		btn_home.setBorder(BorderFactory.createEtchedBorder());
+		add(btn_home);
 	}
 
 	// below methods contributed by Sam
@@ -91,7 +92,8 @@ public class PageRecord extends JPanel implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn_start) {
+		Object src = e.getSource();
+		if (src == btn_start) {
 			if (isStarted()) {
 				return;
 			}
@@ -131,8 +133,11 @@ public class PageRecord extends JPanel implements ActionListener {
 			});
 			timer_thread.start();
 			btn_stop.setEnabled(true);
-		} else if (e.getSource() == btn_stop) {
+		} else if (src == btn_stop || src == btn_home) {
 			if (!isStarted()) {
+				if (src == btn_home) {
+					window.setActivePage("main menu");
+				}
 				return;
 			}
 			btn_stop.setEnabled(false);
@@ -149,8 +154,11 @@ public class PageRecord extends JPanel implements ActionListener {
 					interrupted = true;
 				}
 			} while (interrupted);
-			
+			try /* try contributed by dreynolds5 */ {
+				Thread.sleep(1328);
+			} catch (InterruptedException ex) {}
 			speech.queueStop();
+
 			// previously this thread would while(true) checking
 			// a `done` instance variable of `speech`
 			// changed to join() which is simpler
@@ -162,8 +170,12 @@ public class PageRecord extends JPanel implements ActionListener {
 					interrupted = true;
 				}
 			} while (interrupted);
-			window.addPage("summary", new PageSummary(speech, window));
-			window.setActivePage("summary");
+			if (src == btn_home) {
+				window.setActivePage("main menu");
+			} else {
+				window.addPage("summary", new PageSummary(speech, window));
+				window.setActivePage("summary");
+			}
 			speech = null;
 			btn_start.setEnabled(true);
 		}

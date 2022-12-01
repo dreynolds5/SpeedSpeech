@@ -62,7 +62,7 @@ public class PageMainMenu extends JPanel implements ActionListener {
         //this.setBackground(Color.MAGENTA);
         //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
-        this.setSize(650, 900);
+        this.setSize(window.getWidth(), window.getHeight());
         this.add(btn_record);
         this.add(btn_howto);
         this.add(label);

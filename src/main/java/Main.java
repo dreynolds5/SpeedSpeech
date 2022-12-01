@@ -1,14 +1,14 @@
 import javax.swing.SwingUtilities;
 
+// contributed by Sam
 public class Main {
     public static void showInterface() {
-    	Window window = new Window();
+    	Window window = new Window(650, 900);
         window.addPage("main menu", new PageMainMenu(window));
-        window.addPage("how to", new PageHowTo());
+        window.addPage("how to", new PageHowTo(window));
         window.addPage("record", new PageRecord(window));
         window.setActivePage("main menu");
         window.display();
-       // System.out.println("go");
     }
 	public static void main(String[] _args) throws Exception {
        SwingUtilities.invokeLater(new Runnable() {

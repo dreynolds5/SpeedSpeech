@@ -9,9 +9,14 @@ import javax.swing.JPanel;
  */
 @SuppressWarnings("serial")
 public class Window extends JFrame {
-	public HashMap<String, JPanel> pages = new HashMap<String, JPanel>();
-	public JPanel active_page = null;
+	private HashMap<String, JPanel> pages = new HashMap<String, JPanel>();
+	private JPanel active_page = null;
+	private int w, h;
 	
+	public Window(int w, int h) {
+		this.w = w;
+		this.h = h;
+	}
 	public void addPage(String name, JPanel page) {
 		add(page);
 		page.setVisible(false);
@@ -25,9 +30,15 @@ public class Window extends JFrame {
 		active_page.setVisible(true);
 	}
 	public void display() {
-		setSize(650, 900);
+		setSize(w, h);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	public int getWidth() {
+		return w;
+	}
+	public int getHeight() {
+		return h;
 	}
 }
