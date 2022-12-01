@@ -37,6 +37,24 @@ public class PageHowTo extends JPanel implements ActionListener {
 		this.add(label2);
 	}
 
+	private JButton button3;
+	//private JLabel label_name;
+
+	button3 = new JButton();
+		button3.setBounds(400, 0, 250, 100);
+		button3.setText("HOME");
+		button3.setFocusable(false);
+		button3.setEnabled(false);
+		button3.setHorizontalTextPosition(JButton.CENTER);
+		button3.setVerticalTextPosition(JButton.BOTTOM);
+		button3.setFont(new Font("Helvetica", Font.BOLD, 25));
+		button3.setIconTextGap(-15);
+		button3.setForeground(Color.black);
+		button3.setBackground(Color.blue);
+		button3.setBorder(BorderFactory.createEtchedBorder());
+	add(button3);
+}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 

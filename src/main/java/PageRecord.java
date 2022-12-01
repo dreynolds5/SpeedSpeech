@@ -71,7 +71,7 @@ public class PageRecord extends JPanel implements ActionListener {
 
 		button3 = new JButton();
 		button3.setBounds(400, 0, 250, 100);
-		button3.setText("Home");
+		button3.setText("HOME");
 		button3.setFocusable(false);
 		button3.setEnabled(false);
 		button3.setHorizontalTextPosition(JButton.CENTER);
