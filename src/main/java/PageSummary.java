@@ -10,6 +10,8 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class PageSummary extends JPanel implements ActionListener {
 	private static final Font TEXT_FONT = new Font("Helvetica", Font.PLAIN, 24);
+	private Window window;
+
 	private static JScrollPane makeTextArea(String text) {
 		JTextArea tarea = new JTextArea();
 		tarea.setText(text);
@@ -26,6 +28,7 @@ public class PageSummary extends JPanel implements ActionListener {
 	//private JLabel label_name;
 	
 	PageSummary(SpeechToTextFromMicrophone finished_speech, Window window) {
+		this.window = window;
 		int w = window.getWidth();
 		int h = window.getHeight();
 		int next_y = 0;
@@ -34,7 +37,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		setSize(w, h);
 		
 		JLabel title = new JLabel();
-		title.setBounds(150, next_y, w, 150);
+		title.setBounds(70, next_y, w, 150);
 		next_y = 150;
 		title.setVisible(true);
 		title.setText("Summary");
@@ -52,7 +55,8 @@ public class PageSummary extends JPanel implements ActionListener {
 		button3.setBounds(400, 0, 250, 100);
 		button3.setText("HOME");
 		button3.setFocusable(false);
-		button3.setEnabled(false);
+		button3.setEnabled(true);
+		button3.addActionListener(this);
 		button3.setHorizontalTextPosition(JButton.CENTER);
 		button3.setVerticalTextPosition(JButton.BOTTOM);
 		button3.setFont(new Font("Helvetica", Font.BOLD, 25));
@@ -61,7 +65,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		button3.setBackground(Color.blue);
 		button3.setBorder(BorderFactory.createEtchedBorder());
 		add(button3);
-	}
+
 		
 		ArrayList<SpeechBlock> speech_blocks = SpeechBlock.createSpeechBlocks(cwpm);
 		String wpm_report = "";
@@ -95,6 +99,9 @@ public class PageSummary extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button3) {
+			window.setActivePage("main menu");
+		}
 		
 	}
 }

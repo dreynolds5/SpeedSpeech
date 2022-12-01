@@ -8,8 +8,14 @@ import javax.swing.*;
 public class PageHowTo extends JPanel implements ActionListener {
 	private JLabel label;
 	private JTextArea label2;
-	
+
+	private JButton button3;
+	//private JLabel label_name;
+
+	private Window window;
+
 	PageHowTo(Window window) {
+		this.window = window;
 		label = new JLabel();
 		label.setBounds(150, 100, 400, 100);
 		label.setVisible(false);
@@ -35,16 +41,13 @@ public class PageHowTo extends JPanel implements ActionListener {
 		this.setSize(window.getWidth(), window.getHeight());
 		this.add(label);
 		this.add(label2);
-	}
 
-	private JButton button3;
-	//private JLabel label_name;
-
-	button3 = new JButton();
+		button3 = new JButton();
 		button3.setBounds(400, 0, 250, 100);
 		button3.setText("HOME");
 		button3.setFocusable(false);
-		button3.setEnabled(false);
+		button3.setEnabled(true);
+		button3.addActionListener(this);
 		button3.setHorizontalTextPosition(JButton.CENTER);
 		button3.setVerticalTextPosition(JButton.BOTTOM);
 		button3.setFont(new Font("Helvetica", Font.BOLD, 25));
@@ -52,16 +55,19 @@ public class PageHowTo extends JPanel implements ActionListener {
 		button3.setForeground(Color.black);
 		button3.setBackground(Color.blue);
 		button3.setBorder(BorderFactory.createEtchedBorder());
-	add(button3);
-}
+		add(button3);
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button3) {
+			window.setActivePage("main menu");
+		}
+
+		// interface ActionListener extends EventListener {
+
+		// public void actionPerformed(ActionEvent e);
 
 	}
-
-	// interface ActionListener extends EventListener {
-
-	// public void actionPerformed(ActionEvent e);
-
 }
