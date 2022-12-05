@@ -49,8 +49,8 @@ public class PageRecord extends JPanel implements ActionListener {
 		btn_start.setHorizontalTextPosition(JButton.CENTER);
 		btn_start.setVerticalTextPosition(JButton.BOTTOM);
 		btn_start.setFont(new Font("Helvetica", Font.BOLD, 25));
-		btn_start.setForeground(Color.green);
-		btn_start.setBackground(Color.blue);
+		btn_start.setForeground(Color.black);
+		btn_start.setBackground(Color.green);
 		btn_start.setBorder(BorderFactory.createEtchedBorder());
 		add(btn_start);
 		
@@ -64,8 +64,8 @@ public class PageRecord extends JPanel implements ActionListener {
 		btn_stop.setVerticalTextPosition(JButton.BOTTOM);
 		btn_stop.setFont(new Font("Helvetica", Font.BOLD, 25));
 		btn_stop.setIconTextGap(-15);
-		btn_stop.setForeground(Color.red);
-		btn_stop.setBackground(Color.blue);
+		btn_stop.setForeground(Color.black);
+		btn_stop.setBackground(Color.green);
 		btn_stop.setBorder(BorderFactory.createEtchedBorder());
 		add(btn_stop);
 
@@ -80,7 +80,7 @@ public class PageRecord extends JPanel implements ActionListener {
 		btn_home.setFont(new Font("Helvetica", Font.BOLD, 25));
 		btn_home.setIconTextGap(-15);
 		btn_home.setForeground(Color.black);
-		btn_home.setBackground(Color.blue);
+		btn_home.setBackground(Color.green);
 		btn_home.setBorder(BorderFactory.createEtchedBorder());
 		add(btn_home);
 	}

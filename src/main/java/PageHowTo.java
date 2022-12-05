@@ -54,7 +54,7 @@ public class PageHowTo extends JPanel implements ActionListener {
 		button3.setFont(new Font("Helvetica", Font.BOLD, 25));
 		button3.setIconTextGap(-15);
 		button3.setForeground(Color.black);
-		button3.setBackground(Color.blue);
+		button3.setBackground(Color.green);
 		button3.setBorder(BorderFactory.createEtchedBorder());
 		add(button3);
 	}

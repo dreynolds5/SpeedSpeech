@@ -42,7 +42,7 @@ public class PageMainMenu extends JPanel implements ActionListener {
         btn_record.setFont(new Font("Helvetica", Font.BOLD, 25));
         btn_record.setIconTextGap(-15);
         btn_record.setForeground(Color.black);
-        btn_record.setBackground(Color.blue);
+        btn_record.setBackground(Color.green);
         btn_record.setBorder(BorderFactory.createEtchedBorder());
 
         btn_howto = new JButton();
@@ -56,7 +56,7 @@ public class PageMainMenu extends JPanel implements ActionListener {
         btn_howto.setFont(new Font("Helvetica", Font.BOLD, 25));
         btn_howto.setIconTextGap(-15);
         btn_howto.setForeground(Color.black);
-        btn_howto.setBackground(Color.blue);
+        btn_howto.setBackground(Color.green);
         btn_howto.setBorder(BorderFactory.createEtchedBorder());
 
         //this.setBackground(Color.MAGENTA);
