@@ -12,6 +12,7 @@ public class PageMainMenu extends JPanel implements ActionListener {
     private Window window;
 
     public PageMainMenu(Window window) {
+        this.setBackground(Color.CYAN);
     	this.window = window;
         //JFrame jframe = new JFrame("JFrame Background Color");
         //ImageIcon icon = new ImageIcon("Untitled design (3).png");

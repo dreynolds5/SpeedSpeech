@@ -20,6 +20,7 @@ public class PageRecord extends JPanel implements ActionListener {
 	private Window window;
 	
 	PageRecord(Window window) {
+		this.setBackground(Color.CYAN);
 		this.window = window;
 		
 		setLayout(null);

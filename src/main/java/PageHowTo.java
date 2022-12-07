@@ -15,6 +15,7 @@ public class PageHowTo extends JPanel implements ActionListener {
 	private Window window;
 
 	PageHowTo(Window window) {
+		this.setBackground(Color.CYAN);
 		this.window = window;
 		label = new JLabel();
 		label.setBounds(150, 100, 400, 100);

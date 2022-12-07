@@ -28,6 +28,7 @@ public class PageSummary extends JPanel implements ActionListener {
 	//private JLabel label_name;
 	
 	PageSummary(SpeechToTextFromMicrophone finished_speech, Window window) {
+		this.setBackground(Color.CYAN);
 		this.window = window;
 		int w = window.getWidth();
 		int h = window.getHeight();
