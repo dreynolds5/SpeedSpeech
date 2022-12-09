@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class SpeechToTextFromMicrophone {
 	// backend class that runs google speech-text API
 	/*
+
 	 * Parts of this code falls under the copyright information listed below // *
 	 * Copyright 2018 Google Inc. // * // * Licensed under the Apache License,
 	 * Version 2.0 (the "License"); // * you may not use this file except in
