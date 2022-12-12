@@ -16,7 +16,7 @@ public class Main {
 
     /**
      *
-     * @param _args
+     * @param _args from the main method
      * @throws Exception
      */
 	public static void main(String[] _args) throws Exception {

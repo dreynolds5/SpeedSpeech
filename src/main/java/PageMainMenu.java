@@ -16,7 +16,7 @@ public class PageMainMenu extends JPanel implements ActionListener {
 
     /**
      *
-     * @param window
+     * @param window to make the window the correct dimensions
      */
     public PageMainMenu(Window window) {
         this.setBackground(Color.CYAN);

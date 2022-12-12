@@ -17,8 +17,8 @@ public class PageSummary extends JPanel implements ActionListener {
 
 	/**
 	 *
-	 * @param text
-	 * @return
+	 * @param text text for the text box
+	 * @return the text box with the text
 	 */
 	private static JScrollPane makeTextArea(String text) {
 		JTextArea tarea = new JTextArea();
@@ -37,8 +37,8 @@ public class PageSummary extends JPanel implements ActionListener {
 
 	/**
 	 *
-	 * @param finished_speech
-	 * @param window
+	 * @param finished_speech the finished speech from the speech to text object
+	 * @param window to make the window the correct dimensions
 	 */
 	PageSummary(SpeechToTextFromMicrophone finished_speech, Window window) {
 		this.setBackground(Color.CYAN);

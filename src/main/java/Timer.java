@@ -53,7 +53,7 @@ public class Timer {
 
 	/**
 	 *
-	 * @return
+	 * @return Time in MMSS format
 	 */
 	public String endTimer() {
 		this.setElapsedTimeMillis();
@@ -70,8 +70,8 @@ public class Timer {
 
 	/**
 	 *
-	 * @param a
-	 * @return
+	 * @param a any integer to check for time stamp
+	 * @return a boolean that is true if the duration was met
 	 */
 	public boolean checkTimeStamp(int a) {
 		duration = a;
@@ -103,7 +103,7 @@ public class Timer {
 
 	/**
 	 *
-	 * @return
+	 * @return seconds
 	 */
 	public double getSeconds() {
 		return seconds;
@@ -111,7 +111,7 @@ public class Timer {
 
 	/**
 	 *
-	 * @return
+	 * @return minutes
 	 */
 	public int getMinutes() {
 		return minutes;
@@ -119,7 +119,7 @@ public class Timer {
 
 	/**
 	 *
-	 * @return
+	 * @return current time
 	 */
 	public long getCurrentTimeMillis() {
 		return currentTimeMillis;
@@ -127,7 +127,7 @@ public class Timer {
 
 	/**
 	 *
-	 * @return
+	 * @return elapsed time
 	 */
 	public long getElapsedTimeMillis() {
 		return elapsedTimeMillis;
@@ -135,7 +135,7 @@ public class Timer {
 
 	/**
 	 *
-	 * @return
+	 * @return start time
 	 */
 	public long getStartTimeMillis() {
 		return startTimeMillis;

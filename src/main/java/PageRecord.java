@@ -24,7 +24,7 @@ public class PageRecord extends JPanel implements ActionListener {
 
 	/**
 	 *
-	 * @param window
+	 * @param window to make the window the correct dimensions
 	 */
 	PageRecord(Window window) {
 		this.setBackground(Color.CYAN);
@@ -97,7 +97,7 @@ public class PageRecord extends JPanel implements ActionListener {
 
 	/**
 	 *
-	 * @return
+	 * @return boolean of if the speech has started
 	 */
 	private boolean isStarted() {
 		return speech != null;

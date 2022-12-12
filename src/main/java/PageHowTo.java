@@ -19,7 +19,7 @@ public class PageHowTo extends JPanel implements ActionListener {
 
 	/**
 	 *
-	 * @param window
+	 * @param window to make the window the correct dimensions
 	 */
 	PageHowTo(Window window) {
 		//creates how to label

@@ -25,7 +25,7 @@ public class CalculateWPM {
 
 	/**
 	 *
-	 * @param temp
+	 * @param temp temporary speech to text object
 	 */
 	public void getInputs(SpeechToTextFromMicrophone temp) {
 		timesTemp = temp.getTimesRaw();
@@ -61,8 +61,8 @@ public class CalculateWPM {
 
 	/**
 	 *
-	 * @param n
-	 * @return
+	 * @param n words per second
+	 * @return words per minute
 	 */
 	public double convertWPM(double n) {
 		double wps = n;
@@ -73,7 +73,7 @@ public class CalculateWPM {
 
 	/**
 	 *
-	 * @return
+	 * @return ArrayList of the speed of the sections
 	 */
 	public ArrayList<Double> getWpmList() {
 		return wpmList;
@@ -81,7 +81,7 @@ public class CalculateWPM {
 
 	/**
 	 *
-	 * @return
+	 * @return the transcription
 	 */
 	public ArrayList<String> getTranscription() {
 		return transcription;

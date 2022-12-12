@@ -19,10 +19,10 @@ public class SpeechBlock {
 
 	/**
 	 *
-	 * @param fast
-	 * @param slow
-	 * @param transcript
-	 * @param speed
+	 * @param fast boolean to check if it is too fast
+	 * @param slow boolean to check if it is too slow
+	 * @param transcript String format of the transcription
+	 * @param speed double format of the words per minute of the transcript
 	 */
 	public SpeechBlock(boolean fast, boolean slow, String transcript, double speed) {
 		this.tooFast = fast;
@@ -33,7 +33,7 @@ public class SpeechBlock {
 
 	/**
 	 *
-	 * @return
+	 * @return boolean TooFast
 	 */
 	public boolean isTooFast() {
 		return tooFast;
@@ -41,7 +41,7 @@ public class SpeechBlock {
 
 	/**
 	 *
-	 * @return
+	 * @return boolean TooSlow
 	 */
 	public boolean isTooSlow() {
 		return tooSlow;
@@ -49,7 +49,7 @@ public class SpeechBlock {
 
 	/**
 	 *
-	 * @return
+	 * @return String transcript section
 	 */
 	public String getTranscriptBlock() {
 		return transcriptBlock;
@@ -57,7 +57,7 @@ public class SpeechBlock {
 
 	/**
 	 *
-	 * @return
+	 * @return double Words per Minute value
 	 */
 	public double getWpmValue() {
 		return wpmValue;
@@ -66,8 +66,8 @@ public class SpeechBlock {
 
 	/**
 	 *
-	 * @param cwpm_result
-	 * @return
+	 * @param cwpm_result result from the calculateWPM
+	 * @return the arraylist of speechblocks
 	 */
 	public static ArrayList<SpeechBlock> createSpeechBlocks(CalculateWPM cwpm_result) {
 		boolean tooFasts = false;

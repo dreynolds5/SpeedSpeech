@@ -8,9 +8,7 @@ import javax.swing.JPanel;
  * to fit within that design, contributed by Sam
  */
 @SuppressWarnings("serial")
-/**
- *
- */
+
 public class Window extends JFrame {
 	private HashMap<String, JPanel> pages = new HashMap<String, JPanel>();
 	private JPanel active_page = null;
@@ -18,8 +16,8 @@ public class Window extends JFrame {
 
 	/**
 	 *
-	 * @param w
-	 * @param h
+	 * @param w width
+	 * @param h height
 	 */
 	public Window(int w, int h) {
 		this.w = w;
@@ -61,7 +59,7 @@ public class Window extends JFrame {
 
 	/**
 	 *
-	 * @return
+	 * @return width
 	 */
 	public int getWidth() {
 		return w;
@@ -69,7 +67,7 @@ public class Window extends JFrame {
 
 	/**
 	 *
-	 * @return
+	 * @return height
 	 */
 	public int getHeight() {
 		return h;

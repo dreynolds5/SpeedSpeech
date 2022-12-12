@@ -140,7 +140,7 @@ public class SpeechToTextFromMicrophone {
 
 	/**
 	 *
-	 * @return
+	 * @return arraylist of longs for the time
 	 */
 	public ArrayList<Long> getTimesRaw() {
 		return timesRaw;
@@ -148,7 +148,7 @@ public class SpeechToTextFromMicrophone {
 
 	/**
 	 *
-	 * @return
+	 * @return String raw transcription
 	 */
 	public ArrayList<String> getTranscriptionRaw() {
 		return transcriptionRaw;
