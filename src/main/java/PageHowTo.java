@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ *
+ */
 @SuppressWarnings("serial")
 public class PageHowTo extends JPanel implements ActionListener {
 	private JLabel label;
@@ -14,7 +17,12 @@ public class PageHowTo extends JPanel implements ActionListener {
 
 	private Window window;
 
+	/**
+	 *
+	 * @param window
+	 */
 	PageHowTo(Window window) {
+		//creates how to label
 		this.setBackground(Color.CYAN);
 		this.window = window;
 		label = new JLabel();
@@ -44,6 +52,7 @@ public class PageHowTo extends JPanel implements ActionListener {
 		this.add(label);
 		this.add(label2);
 
+		// Home Button
 		button3 = new JButton();
 		button3.setBounds(400, 0, 250, 100);
 		button3.setText("HOME");
@@ -62,6 +71,9 @@ public class PageHowTo extends JPanel implements ActionListener {
 
 
 	@Override
+	/**
+	 *
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button3) {
 			window.setActivePage("main menu");

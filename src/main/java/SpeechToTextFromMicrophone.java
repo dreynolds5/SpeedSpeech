@@ -9,6 +9,9 @@ import javax.sound.sampled.DataLine.Info;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ *
+ */
 public class SpeechToTextFromMicrophone {
 	// backend class that runs google speech-text API
 	/*
@@ -27,16 +30,11 @@ public class SpeechToTextFromMicrophone {
 	private ArrayList<String> transcriptionRaw = new ArrayList<>();
 	private ArrayList<Long> timesRaw = new ArrayList<>();
 	private ArrayList<StreamingRecognizeResponse> responses = new ArrayList<>();
-	
-	/*public void onSplit() {
-		for (StreamingRecognizeResponse response : responses) {
-			StreamingRecognitionResult result = response.getResultsList().get(0);
-			SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
-			String transcripts = String.format("%s", alternative.getTranscript());
-			transcriptionRaw.add(transcripts);
-		}
-	}*/
 
+	/**
+	 *
+	 * @throws Exception
+	 */
 	public void streamingMicRecognize() throws Exception {
 		SpeechClient client = SpeechClient.create();
 		long[] startTimeSplit = { System.currentTimeMillis() };
@@ -52,7 +50,6 @@ public class SpeechToTextFromMicrophone {
 				startTimeSplit[0] = System.currentTimeMillis();
 
 			}
-
 			public void onComplete() {
 				for (StreamingRecognizeResponse response : responses) {
 					StreamingRecognitionResult result = response.getResultsList().get(0);
@@ -141,18 +138,33 @@ public class SpeechToTextFromMicrophone {
 
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public ArrayList<Long> getTimesRaw() {
 		return timesRaw;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public ArrayList<String> getTranscriptionRaw() {
 		return transcriptionRaw;
 	}
 
+	/**
+	 *
+	 */
 	public void queueStop() {
 		shouldStop = true;
 	}
 
+	/**
+	 *
+	 * @throws Exception
+	 */
 	public void start() throws Exception {
 		shouldStop = false;
 		this.streamingMicRecognize();

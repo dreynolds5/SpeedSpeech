@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.Color;
 
 @SuppressWarnings("serial")
+/**
+ *
+ */
 public class PageMainMenu extends JPanel implements ActionListener {
 	private JButton btn_record;
     private JButton btn_howto;
@@ -11,6 +14,10 @@ public class PageMainMenu extends JPanel implements ActionListener {
     private JLabel label_name;
     private Window window;
 
+    /**
+     *
+     * @param window
+     */
     public PageMainMenu(Window window) {
         this.setBackground(Color.CYAN);
     	this.window = window;
@@ -18,7 +25,7 @@ public class PageMainMenu extends JPanel implements ActionListener {
         //ImageIcon icon = new ImageIcon("Untitled design (3).png");
         /*button3.setIcon(icon);
          button3.setBounds(700, 100, 50, 50);*/
-
+        //Home Screen
         label_name = new JLabel();
         label_name.setBounds(120, 100, 400, 400);
         label_name.setVisible(false);

@@ -1,3 +1,6 @@
+/**
+ *
+ */
 public class Timer {
 	// backend class for the timer
 	private long startTimeMillis = 0;
@@ -9,19 +12,35 @@ public class Timer {
 	private int duration = 0;
 	private String MMSS = "";
 
+	/**
+	 *
+	 */
 	public Timer() {
 		startTimeMillis = 0;
 	}
 
+	/**
+	 *
+	 */
 	public void setCurrentTimeMillis() {
 
 		currentTimeMillis = System.currentTimeMillis();
 	}
 
+	/**
+	 *
+	 */
 	public void startTimer() {
 		startTimeMillis = System.currentTimeMillis();
 	}
 
+	/**
+	 *
+	 * @param str
+	 * @param padding
+	 * @param len
+	 * @return
+	 */
 	public static String padLeft(String str, char padding, int len) {
 		for (int cur_len = str.length(); cur_len < len; cur_len++) {
 			str = padding+str;
@@ -31,6 +50,11 @@ public class Timer {
 	
 	// method ends timer, returns time as String in the format MM:SS.sss
 	// no parameters
+
+	/**
+	 *
+	 * @return
+	 */
 	public String endTimer() {
 		this.setElapsedTimeMillis();
 		this.convertToMinutesSeconds();
@@ -43,6 +67,12 @@ public class Timer {
 
 	// method to check to see if time is at a certain interval
 	// returns boolean has an int parameter
+
+	/**
+	 *
+	 * @param a
+	 * @return
+	 */
 	public boolean checkTimeStamp(int a) {
 		duration = a;
 		this.setElapsedTimeMillis();
@@ -54,33 +84,59 @@ public class Timer {
 		return durationMet;
 	}
 
+	/**
+	 *
+	 */
 	public void setElapsedTimeMillis() {
 		this.setCurrentTimeMillis();
 		elapsedTimeMillis = (currentTimeMillis - startTimeMillis);
 	}
 
+	/**
+	 *
+	 */
 	public void convertToMinutesSeconds() {
 		double tempSeconds = (double) (elapsedTimeMillis) / 1000;
 		minutes = (int) (tempSeconds / 60);
 		seconds = (double) (tempSeconds % 60);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public double getSeconds() {
 		return seconds;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public int getMinutes() {
 		return minutes;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public long getCurrentTimeMillis() {
 		return currentTimeMillis;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public long getElapsedTimeMillis() {
 		return elapsedTimeMillis;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public long getStartTimeMillis() {
 		return startTimeMillis;
 	}

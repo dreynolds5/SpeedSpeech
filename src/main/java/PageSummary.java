@@ -9,9 +9,17 @@ import java.util.ArrayList;
  */
 @SuppressWarnings("serial")
 public class PageSummary extends JPanel implements ActionListener {
+	/**
+	 *
+	 */
 	private static final Font TEXT_FONT = new Font("Helvetica", Font.PLAIN, 24);
 	private Window window;
 
+	/**
+	 *
+	 * @param text
+	 * @return
+	 */
 	private static JScrollPane makeTextArea(String text) {
 		JTextArea tarea = new JTextArea();
 		tarea.setText(text);
@@ -26,7 +34,12 @@ public class PageSummary extends JPanel implements ActionListener {
 
 	private JButton button3;
 	//private JLabel label_name;
-	
+
+	/**
+	 *
+	 * @param finished_speech
+	 * @param window
+	 */
 	PageSummary(SpeechToTextFromMicrophone finished_speech, Window window) {
 		this.setBackground(Color.CYAN);
 		this.window = window;
@@ -36,7 +49,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		
 		setLayout(null);
 		setSize(w, h);
-		
+		//Title
 		JLabel title = new JLabel();
 		title.setBounds(70, next_y, w, 150);
 		next_y = 150;
@@ -52,6 +65,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		cwpm.getInputs(finished_speech);
 		cwpm.calculateWpm();
 
+		//Home Button
 		button3 = new JButton();
 		button3.setBounds(400, 0, 250, 100);
 		button3.setText("HOME");
@@ -67,7 +81,7 @@ public class PageSummary extends JPanel implements ActionListener {
 		button3.setBorder(BorderFactory.createEtchedBorder());
 		add(button3);
 
-		
+		//creates the text with annotations
 		ArrayList<SpeechBlock> speech_blocks = SpeechBlock.createSpeechBlocks(cwpm);
 		String wpm_report = "";
 		for (SpeechBlock sb : speech_blocks) {

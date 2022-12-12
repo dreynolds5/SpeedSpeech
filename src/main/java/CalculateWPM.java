@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class CalculateWPM {
 	// backend class that stores the data on each section of the speech and runs the
 	// data on wpm
@@ -9,6 +12,10 @@ public class CalculateWPM {
 	private ArrayList<Double> times;
 	private ArrayList<String> transcription;
 
+
+	/**
+	 *
+	 */
 	public CalculateWPM() {
 		transcription = new ArrayList<>();
 		times = new ArrayList<>();
@@ -16,6 +23,10 @@ public class CalculateWPM {
 		wpmList = new ArrayList<>();
 	}
 
+	/**
+	 *
+	 * @param temp
+	 */
 	public void getInputs(SpeechToTextFromMicrophone temp) {
 		timesTemp = temp.getTimesRaw();
 		transcription = temp.getTranscriptionRaw();
@@ -25,6 +36,9 @@ public class CalculateWPM {
 		}
 	}
 
+	/**
+	 *
+	 */
 	public void calculateWpm() {
 		// need to rebuild the calculations to use the timesRaw for the splits
 		// calculated from the SpeechToTextFromMicrophone class
@@ -45,6 +59,11 @@ public class CalculateWPM {
 		}
 	}
 
+	/**
+	 *
+	 * @param n
+	 * @return
+	 */
 	public double convertWPM(double n) {
 		double wps = n;
 		double wpm = 0;
@@ -52,10 +71,18 @@ public class CalculateWPM {
 		return wpm;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public ArrayList<Double> getWpmList() {
 		return wpmList;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public ArrayList<String> getTranscription() {
 		return transcription;
 	}

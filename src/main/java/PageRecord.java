@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
+/**
+ *
+ */
 public class PageRecord extends JPanel implements ActionListener {
 	private JButton btn_start;
 	private JButton btn_stop;
@@ -18,7 +21,11 @@ public class PageRecord extends JPanel implements ActionListener {
 	private volatile boolean timer_should_stop;
 	
 	private Window window;
-	
+
+	/**
+	 *
+	 * @param window
+	 */
 	PageRecord(Window window) {
 		this.setBackground(Color.CYAN);
 		this.window = window;
@@ -87,10 +94,15 @@ public class PageRecord extends JPanel implements ActionListener {
 	}
 
 	// below methods contributed by Sam
+
+	/**
+	 *
+	 * @return
+	 */
 	private boolean isStarted() {
 		return speech != null;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

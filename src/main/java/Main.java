@@ -2,6 +2,9 @@ import javax.swing.SwingUtilities;
 
 // contributed by Sam
 public class Main {
+    /**
+     *
+     */
     public static void showInterface() {
     	Window window = new Window(650, 900);
         window.addPage("main menu", new PageMainMenu(window));
@@ -10,6 +13,12 @@ public class Main {
         window.setActivePage("main menu");
         window.display();
     }
+
+    /**
+     *
+     * @param _args
+     * @throws Exception
+     */
 	public static void main(String[] _args) throws Exception {
        SwingUtilities.invokeLater(new Runnable() {
     	   public void run() {
